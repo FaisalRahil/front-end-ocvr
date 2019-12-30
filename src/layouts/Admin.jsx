@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import { Route, Switch,Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 // reactstrap components
 import { Container } from "reactstrap";
 // core components
@@ -27,14 +27,13 @@ import Auth from "./Auth";
 // import axios from 'axios';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from 'react-loader-spinner'
-import Profile from "../views/Pages/Profile";
-import Tables from "../views/Pages/Tables";
+// import Profile from "../views/Pages/Profile";
+// import Tables from "../views/Pages/Tables";
 import Index from "../views/Index";
 
 import routes from "routes.js";
 
 class Admin extends React.Component {
-
   constructor() {
     super();
     this.Login = this.Login.bind(this);

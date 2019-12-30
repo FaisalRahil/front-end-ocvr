@@ -16,7 +16,7 @@
 
 */
 import React from "react";
-import { Redirect, Switch } from "react-router-dom";
+// import { Redirect, Switch } from "react-router-dom";
 // reactstrap components
 import {
   Button,
@@ -38,7 +38,7 @@ class Register extends React.Component {
   redirect(foo){
   localStorage.setItem('flage',foo);
    return(
-    window.location.pathname='/auth/login'
+    window.location.pathname='/Confirm/Message/'
    ); 
   }
   create(){
