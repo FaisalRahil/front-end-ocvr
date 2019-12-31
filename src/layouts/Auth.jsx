@@ -36,7 +36,7 @@ class Auth extends React.Component {
       var flage = localStorage.getItem('flage') === undefined ? false :localStorage.getItem('flage');
     if(window.location.pathname=== "/Confirm/Message/"){
         if (flage==='true'){
-        return  <Route key={3} render={props =><Confarmmessage />}/>;
+        return  <Route key={3} render={props =><Confarmmessage OnLogin={this.props.OnLogin} isLodding={this.props.isLoding} />}/>;
        } 
        window.location.pathname='/auth/register';
       }
