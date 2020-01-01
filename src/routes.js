@@ -16,12 +16,12 @@
 
 */
 import Index from "views/Index.jsx";
-import Profile from "views/Pages/Profile.jsx";
-import Maps from "views/Pages/Maps.jsx";
+// import Profile from "views/Pages/Profile.jsx";
+// import Maps from "views/Pages/Maps.jsx";
 // import Register from "views/Pages/Register.jsx";
 // import Login from "views/Pages/Login.jsx";
-import Tables from "views/Pages/Tables.jsx";
-import Icons from "views/Pages/Icons.jsx";
+// import Tables from "views/Pages/Tables.jsx";
+import AI from "views/Pages/AccuontInformation.jsx";
 
 var routes = [
   {
@@ -32,33 +32,33 @@ var routes = [
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
+    path: "/AccountInformation",
+    name: "Account",
     icon: "ni ni-planet text-blue",
-    component: Icons,
+    component: AI,
     layout: "/admin"
   },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "ni ni-pin-3 text-orange",
-    component: Maps,
-    layout: "/admin"
-  },
-  {
-    path: "/user-profile",
-    name: "User Profile",
-    icon: "ni ni-single-02 text-yellow",
-    component: Profile,
-    layout: "/admin"
-  },
-  {
-    path: "/tables",
-    name: "Tables",
-    icon: "ni ni-bullet-list-67 text-red",
-    component: Tables,
-    layout: "/admin"
-  },
+  // {
+  //   path: "/maps",
+  //   name: "Maps",
+  //   icon: "ni ni-pin-3 text-orange",
+  //   component: Maps,
+  //   layout: "/admin"
+  // },
+  // {
+  //   path: "/user-profile",
+  //   name: "User Profile",
+  //   icon: "ni ni-single-02 text-yellow",
+  //   component: Profile,
+  //   layout: "/admin"
+  // },
+  // {
+  //   path: "/tables",
+  //   name: "Tables",
+  //   icon: "ni ni-bullet-list-67 text-red",
+  //   component: Tables,
+  //   layout: "/admin"
+  // },
   // {
   //   path: "/login",
   //   name: "Login",

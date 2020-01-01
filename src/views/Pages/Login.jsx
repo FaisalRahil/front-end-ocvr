@@ -71,6 +71,7 @@ this.setState({isLodding:true});
     const exprationdate=new Date(new Date().getTime()+RM);
     localStorage.setItem('expration',exprationdate.toISOString());
     this.setState({isLodding:false});
+    window.location.pathname='/admin/index'
     this.props.OnLogin(true,RM);
   // })
   // .catch(error=>{

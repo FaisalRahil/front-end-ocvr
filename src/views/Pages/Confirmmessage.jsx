@@ -73,6 +73,7 @@ this.setState({isLodding:true});
     localStorage.setItem('expration',exprationdate.toISOString());
     this.setState({isLodding:false});
     this.props.OnLogin(true,RM);
+    window.location.pathname ='/admin/index';
   // })
   // .catch(error=>{
     this.setState({isLodding:false});

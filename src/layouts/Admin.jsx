@@ -30,7 +30,7 @@ import Loader from 'react-loader-spinner'
 // import Profile from "../views/Pages/Profile";
 // import Tables from "../views/Pages/Tables";
 import Index from "../views/Index";
-
+import AI from '../views/Pages/AccuontInformation'
 import routes from "routes.js";
 
 class Admin extends React.Component {
@@ -110,7 +110,6 @@ setTimeout(() => {
   }
 
 getRoutes = () => {
-
     if(window.location.pathname==='/admin/index'){
      return( 
      <Route
@@ -121,40 +120,22 @@ getRoutes = () => {
       key={1}
     />)
     }
+    if(window.location.pathname==='/admin/AccountInformation'){
+      return( 
+      <Route
+       path="/admin/AccountInformation"
+       name= "Dashboard"
+       icon= "ni ni-tv-2 text-primary"
+       component= {AI}
+       key={2}
+     />)
+     }
     return <Route
        name= "Dashboard"
        icon= "ni ni-tv-2 text-primary"
        component= {Index}
        key={999}
      />
-    
-
-
-
-    // return routes.map((prop, key) => {
-      // if(window.location.pathname==='/'){
-      //   return (
-      //     <Route
-      //     path={'/admin/index'}
-      //     component={prop.component}
-      //     key={key}
-      //   />
-      //   );
-      // }
-      // if (prop.layout === "/admin") {
-      //   return (
-      //     <Route
-      //       path={prop.layout + prop.path}
-      //       component={prop.component}
-      //       key={key}
-      //     />
-      //   );
-      // } else {
-      //   console.log('this is the asdjkas');
-        
-      //   return(<Redirect to="/admin/index" key={key} />)
-      // }
-    // });
   };
   getBrandText = path => {
     for (let i = 0; i < routes.length; i++) {
@@ -205,15 +186,13 @@ getRoutes = () => {
             />
           </div>
           );
-      
           }else{
             if (this.state.IsAuth ===true) {
               return content;
             } else {
               return AuthPage;
             }
-          }
-          
+          } 
   }
 }
 
