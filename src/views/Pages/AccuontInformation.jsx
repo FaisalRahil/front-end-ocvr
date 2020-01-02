@@ -20,6 +20,8 @@ import React from "react";
 // import classnames from "classnames";
 // javascipt plugin for creating charts
 import Chart from "chart.js";
+import SweetAlert from "react-bootstrap-sweetalert";
+import Scrollable from 'hide-scrollbar-react';
 // react plugin used to create charts
 // import { Line, Bar } from "react-chartjs-2";
 // reactstrap components
@@ -30,7 +32,13 @@ import {
   CardBody,
   Container,
   Row,
-  Col,
+  FormGroup,
+  Form,
+  Input,
+  InputGroupAddon,
+  InputGroupText,
+  InputGroup,
+  Col
 //   Form,
 //   Input,
 //   FormGroup,
@@ -49,9 +57,52 @@ import Header from "components/Headers/Header.jsx";
 
 class Index extends React.Component {
   state = {
-    activeNav: 1,
-    chartExample1Data: "data1"
+    AICollor:'primary',
+    PCCollor:'primary',
+    CoCollor:'primary',
+    CS:0,
+    alert: null,
+    show: false
   };
+  hideAlert() {
+    this.setState({
+      alert: null
+    });
+  }
+  inputAlert() {
+    this.setState({
+      alert: (
+        <SweetAlert
+          input
+          showCancel
+          style={{ display: "block", marginTop: "150px" }}
+          title="Confirm your account"
+          onConfirm={e => alert('your input is '+e)}
+          onCancel={() => this.hideAlert()}
+          confirmBtnBsStyle="info"
+          cancelBtnBsStyle="danger"
+        />
+      )
+    });
+  }
+
+  RenderAI(){
+    this.setState({AICollor:'info',PCCollor:'primary',CoCollor:'primary',CS:1});
+
+    return;
+  }
+
+  RenderPC(){
+    this.setState({AICollor:'primary',PCCollor:'info',CoCollor:'primary',CS:2});
+    //set flage number 
+    return;
+  }
+
+  RenderCo(){
+    this.setState({AICollor:'primary',PCCollor:'primary',CoCollor:'info',CS:3});
+    //set flage number 
+    return;
+  }
   toggleNavs = (e, index) => {
     e.preventDefault();
     this.setState({
@@ -71,55 +122,240 @@ class Index extends React.Component {
       parseOptions(Chart, chartOptions());
     }
   }
+
+Content(){
+    if(this.state.CS===1){
+      return(
+        <Row>
+        <Col>
+        <Form role="form">
+                <FormGroup className="mb-3">
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-email-83" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Password" type="password"
+                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+            </Form>
+            </Col>
+            <Col>
+        <Form role="form">
+                <FormGroup className="mb-3">
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-email-83" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Password" type="password"
+                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+            </Form>
+            </Col>
+          </Row>
+      );
+    }
+    if(this.state.CS===2){
+      return(
+        <Row>
+        <Col>
+        <Form role="form">
+                <FormGroup className="mb-3">
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-email-83" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Password" type="password"
+                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+            </Form>
+            </Col>
+            <Col>
+        <Form role="form">
+                <FormGroup className="mb-3">
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-email-83" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup className="mb-3">
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-email-83" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Password" type="password"
+                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+            </Form>
+            </Col>
+          </Row>
+        
+
+      );
+    }
+    if(this.state.CS===3){
+      return(
+        <Form role="form">
+        {this.state.alert}
+        <FormGroup className="mb-3">
+          <InputGroup className="input-group-alternative">
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <i className="ni ni-email-83" />
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+          </InputGroup>
+        </FormGroup>
+        <FormGroup>
+          <InputGroup className="input-group-alternative">
+            <InputGroupAddon addonType="prepend">
+              <InputGroupText>
+                <i className="ni ni-lock-circle-open" />
+              </InputGroupText>
+            </InputGroupAddon>
+            <Input placeholder="Password" type="password"
+            onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+            />
+          </InputGroup>
+        </FormGroup>
+        
+        <div style={{textAlign:'right'}}>
+        <Button className="my-4" color='primary' type="button"
+                        onClick={(e)=>this.inputAlert()}
+                        >
+                           Submit
+                        </Button>
+        </div>
+    </Form>
+      );
+    }
+    return(
+ <Form role="form">
+    <div style={{textAlign:"center",margin:'10%'}}>
+   Hi this is for changing your account Information
+    </div>
+ </Form>
+    );
+  }
+
+
+
+
+
   render() {
     return (
 <>
+<Scrollable>
 <Header />
     {/* Page content */}
-    <Container className=" mt--7" fluid>
+   
+    <Container className="mt--7" fluid>
+   
           {/* Table */}
           <Row>
             <div className=" col">
               <Card className=" shadow">
                 <CardHeader className=" bg-transparent">
-                    <Row>
+                <div style={{textAlign:"center"}}>
+                    {/* <Row> */}
                         {/* <Col> */}
-                        <div style={{textAlign:'center'}}>
-                        <Button className="my-4" color="primary" type="button">
+                        {/* <div style={{textAlign:'center'}}> */}
+                        <Button className="my-4" color={this.state.AICollor} type="button"
+                        onClick={(e)=>this.RenderAI()}
+                        >
                            Account information
                         </Button>
-                        </div>
+                        {/* </div> */}
                         {/* </Col> */}
                         {/* <Col> */}
-                        <div style={{textAlign:''}}>
-                        <Button className="my-4" color="primary" type="button">
-                            Password
+                        {/* <div style={{textAlign:''}}> */}
+                        <Button className="my-4" color={this.state.PCCollor} type="button"
+                         onClick={(e)=>this.RenderPC()}
+                        >
+                            Password Conformation
                         </Button>
-                        </div>
+                        {/* </div> */}
                         {/* </Col> */}
                         {/* <Col> */}
-                        <div style={{textAlign:'left'}}>
-                        <Button className="my-4" color="primary" type="button">
+                        {/* <div style={{textAlign:'left'}}> */}
+                        <Button className="my-4" color={this.state.CoCollor} type="button"
+                         onClick={(e)=>this.RenderCo()}
+                        >
                           Confirmation
                         </Button>
-                        </div>
+                        {/* </div> */}
                         {/* </Col> */}
-                    </Row>
+                    {/* </Row> */}
+                    </div>
                 </CardHeader>
                 <CardBody>
-                
-
-
-
-
-
-
+                {this.Content()}
                 </CardBody>
               </Card>
             </div>
           </Row>
         </Container>
-
+</Scrollable>
 </>
     );
   }
