@@ -85,11 +85,7 @@ this.setState({isLodding:true});
   InputHandler(event,Value){
     this.setState({[event]:Value})
   }
-
-
-
 Conntent(){
-
   if (this.state.isLodding) {
     return (
       <Loader
@@ -106,23 +102,21 @@ Conntent(){
   render() {
     return (
       <>
-        <Col lg="5" md="7">
+        <Col lg="7" md="7">
         <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-            <Row className="justify-content-center">
-                  <Col lg="6" md="6">
-                    <h1 className="text-black">OCVR Confirm </h1>
-                  </Col>
-                </Row>
+            <CardHeader className="bg-transparent pb-3">
+            <div className="text-center">
+            <h1 className="text-black">OCVR Confirm </h1>
+            </div>
             </CardHeader>
-            <CardBody className="px-lg-5 py-lg-5">
+            <CardBody className="px-lg-5 py-lg-2">
               <div className="text-center text-muted mb-4">
                 <h3>
-                    Confirm your Registration
+                    Confirm your Registration number xx-xxxxx <a href=""> not my number</a>
                 </h3>
               </div>
               <Form role="form">
-                <FormGroup className="mb-3">
+                <FormGroup >
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
@@ -132,12 +126,8 @@ Conntent(){
                     <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
                   </InputGroup>
                 </FormGroup>
-                <div className="custom-control custom-control-alternative custom-checkbox">
-                  <input
-                    className="custom-control-input"
-                    id=" customCheckLogin"
-                    type="checkbox"
-                  />
+                <div className="text-center">
+                <a href=""> resend code</a>
                 </div>
                 <div className="text-center">
                   <Button className="my-4" color="primary" type="button" onClick={event=>{this.onclick()}}>

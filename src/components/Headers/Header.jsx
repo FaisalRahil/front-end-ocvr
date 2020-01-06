@@ -24,14 +24,12 @@ class Header extends React.Component {
   render() {
     return (
       <> 
-<div className="header bg-gradient-info pb-9 pt-1 pt-md-8">
+<div className="header bg-gradient-info pb-8  pt-md-6">
           <Container fluid>
             <div className="header-body">
               {/* Card stats */}
-              <div style={{textAlign:"center",color:'white',marginTop:'2%'}}>
-
+              <div style={{textAlign:"center",color:'white'}} className="pt-2">
                 This is for HNEC Description     
-
               </div>
             </div>
           </Container>

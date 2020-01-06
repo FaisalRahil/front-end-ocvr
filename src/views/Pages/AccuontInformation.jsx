@@ -126,6 +126,10 @@ class Index extends React.Component {
 Content(){
     if(this.state.CS===1){
       return(
+        <div>
+        <h4>
+        Your old Email is: XXXX@XXX.XXX
+        </h4>
         <Row>
         <Col>
         <Form role="form">
@@ -136,25 +140,27 @@ Content(){
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                    <Input placeholder="Old Email" type="email" 
+                    // onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
+                    />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
+                        <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Password" type="password"
-                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    <Input placeholder="Confirm Email" type="email"
+                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
             </Form>
             </Col>
             <Col>
-        <Form role="form">
+            <Form role="form">
                 <FormGroup className="mb-3">
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -162,24 +168,22 @@ Content(){
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Password" type="password"
-                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    <Input placeholder="new Email" type="email" 
+                    // onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
                     />
                   </InputGroup>
+                </FormGroup>
+                <FormGroup>      
+                <Button className="" color='primary' type="button"
+                        // onClick={(e)=>this.inputAlert()}
+                        >
+                           Submit
+                        </Button>
                 </FormGroup>
             </Form>
             </Col>
           </Row>
+          </div>
       );
     }
     if(this.state.CS===2){
@@ -187,14 +191,16 @@ Content(){
         <Row>
         <Col>
         <Form role="form">
-                <FormGroup className="mb-3">
+                <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="ni ni-email-83" />
+                        <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                    <Input placeholder="Old Password" type="password"
+                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
@@ -204,35 +210,74 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Password" type="password"
-                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    <Input placeholder="New Password" type="password"
+                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+            </Form>
+            </Col>
+      <Col>
+        <Form role="form">
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Confirm Password" type="password"
+                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                <Button className="" color='primary' type="button"
+                        // onClick={(e)=>this.inputAlert()}
+                        >
+                           Submit
+                        </Button>
+                </FormGroup>
+            </Form>
+          </Col>
+          </Row>
+      );
+    }
+    if(this.state.CS===3){
+      return(
+        <div>
+        {this.state.alert}
+      <Row>
+        <Col>
+        <Form role="form">
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Old Number" type="password"
+                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="New Number" type="password"
+                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
             </Form>
             </Col>
             <Col>
-        <Form role="form">
-                <FormGroup className="mb-3">
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-email-83" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup className="mb-3">
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-email-83" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
-                  </InputGroup>
-                </FormGroup>
+           <Form role="form">
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -240,53 +285,21 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Password" type="password"
-                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    <Input placeholder="Confirm Number" type="password"
+                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
-            </Form>
-            </Col>
-          </Row>
-        
-
-      );
-    }
-    if(this.state.CS===3){
-      return(
-        <Form role="form">
-        {this.state.alert}
-        <FormGroup className="mb-3">
-          <InputGroup className="input-group-alternative">
-            <InputGroupAddon addonType="prepend">
-              <InputGroupText>
-                <i className="ni ni-email-83" />
-              </InputGroupText>
-            </InputGroupAddon>
-            <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
-          </InputGroup>
-        </FormGroup>
-        <FormGroup>
-          <InputGroup className="input-group-alternative">
-            <InputGroupAddon addonType="prepend">
-              <InputGroupText>
-                <i className="ni ni-lock-circle-open" />
-              </InputGroupText>
-            </InputGroupAddon>
-            <Input placeholder="Password" type="password"
-            onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
-            />
-          </InputGroup>
-        </FormGroup>
-        
-        <div style={{textAlign:'right'}}>
-        <Button className="my-4" color='primary' type="button"
-                        onClick={(e)=>this.inputAlert()}
-                        >
+                <FormGroup>
+                <Button color='primary' type="button"
+                        onClick={(e)=>this.inputAlert()}>
                            Submit
                         </Button>
+                </FormGroup>
+            </Form>
+          </Col>
+          </Row>
         </div>
-    </Form>
       );
     }
     return(

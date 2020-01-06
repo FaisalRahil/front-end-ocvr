@@ -58,12 +58,11 @@ class Auth extends React.Component {
           <AuthNavbar />
           <div className="header bg-gradient-info py-7 py-lg-8">
             <Container>
-              <div className="header-body text-center mb-7">
+              <div className="header-body text-center mb-5">
                 <Row className="justify-content-center">
                   <Col lg="5" md="6">
                     <h1 className="text-white">Welcome to OCVR system </h1>
                     <h1 className="text-white"> Out of Country Voters Regstrations </h1>
-                   
                   </Col>
                 </Row>
               </div>

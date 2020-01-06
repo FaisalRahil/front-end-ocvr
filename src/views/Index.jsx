@@ -89,113 +89,15 @@ class Index extends React.Component {
       <Col lg="6" md="8">
       <div style={{marginBottom:'5%'}}>
           <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-4">
+            <CardHeader className="bg-transparent pb-2">
+              <div className="text-center mt-2 mb-4">
               <h3>Choose your regin center</h3>
               </div>
             </CardHeader>
-            <CardBody className="px-lg-5 py-lg-5">
+            <CardBody className="px-lg-5 py-lg-3">
               <Form role="form">
-                <FormGroup className="mb-3">
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-email-83" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Email" type="email" 
-                    // onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup className="mb-3">
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-email-83" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Confirm Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Password" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Confirm Password" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
-                    />
-                  </InputGroup>
-                </FormGroup>
-                <div className="custom-control custom-control-alternative custom-checkbox">
-                  <input
-                    className="custom-control-input"
-                    id=" customCheckLogin"
-                    type="checkbox"
-                  />
-                  {/* <label
-                    className="custom-control-label"
-                    htmlFor=" customCheckLogin"
-                  >
-                    <span className="text-muted">Remember me</span>
-                  </label> */}
-                </div>
-                <div className="text-center">
-               {/* bouttone  */}
-                </div>
-             
-              </Form>
-            </CardBody>
-          </Card>
-          </div>
-     
-        </Col>
 
-        <Col lg="6" md="8">
-          <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-4">
-              <h3>Choose your regin center</h3>
-              </div>
-            </CardHeader>
-            <CardBody className="px-lg-5 py-lg-5">
-              <Form role="form">
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-hat-3" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="NID" type="text" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-email-83" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="Mother Name" type="email" />
-                  </InputGroup>
-                </FormGroup>
-                <FormGroup>
+              <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
@@ -204,7 +106,7 @@ class Index extends React.Component {
                     </InputGroupAddon>
                     <Input placeholder="Contry" type="select">
                     <option value=''>
-                       Choose
+                       Choose Cuntry
                     </option>
                     <option value='libya'>
                        libya
@@ -216,56 +118,111 @@ class Index extends React.Component {
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
+                  <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="ni ni-hat-3" />
+                        <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="City" type="text" />
+                    <Input placeholder="Contry" type="select">
+                    <option value=''>
+                       Choose city
+                    </option>
+                    <option value='libya'>
+                       bngaze
+                    </option>
+                    <option value='kanda'>
+                    sbha
+                    </option>
+                    </Input>
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
+                  <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="ni ni-hat-3" />
+                        <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Phone" type="text" />
+                    <Input placeholder="Contry" type="select">
+                    <option value=''>
+                       Choose Center
+                    </option>
+                    <option value='libya'>
+                       i dont know 1
+                    </option>
+                    <option value='kanda'>
+                    i dont know 2
+                    </option>
+                    </Input>
                   </InputGroup>
-                </FormGroup>
-                {/* <div className="text-muted font-italic">
-                  <small>
-                    password strength:{" "}
-                    <span className="text-success font-weight-700">strong</span>
-                  </small>
-                </div> */}
-                {/* <Row className="my-4">
-                  <Col xs="12"> */}
-                    {/* <div className="custom-control custom-control-alternative custom-checkbox">
-                      <input
-                        className="custom-control-input"
-                        id="customCheckRegister"
-                        type="checkbox"
-                      />
-                      <label
-                        className="custom-control-label"
-                        htmlFor="customCheckRegister"
-                      >
-                        <span className="text-muted">
-                          I agree with the{" "}
-                          <a href="#pablo" onClick={e => e.preventDefault()}>
-                            Privacy Policy
-                          </a>
-                        </span>
-                      </label>
-                    </div> */}
-                  {/* </Col>
-                </Row> */}
+                </FormGroup>   
                 <div className="text-center">
                   <Button className="mt-4" color="primary" type="button" onClick={e=>console.log('tasdasd')}>
-                    Create account
+                    Submit
+                  </Button>
+                </div>             
+              </Form>
+            </CardBody>
+          </Card>
+          </div>
+        </Col>
+
+        <Col lg="6" md="8">
+          <Card className="bg-secondary shadow border-0">
+            <CardHeader className="bg-transparent pb-2">
+              <div className="text-muted text-center mt-2 mb-4">
+              <h3>Choose your regin center</h3>
+              </div>
+            </CardHeader>
+            <CardBody className="px-lg-5 py-lg-5">
+              <Form role="form">
+
+              <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Contry" type="select">
+                    <option value=''>
+                       Choose rigen
+                    </option>
+                    <option value='libya'>
+                       i dont know 1
+                    </option>
+                    <option value='kanda'>
+                    i dont know 2
+                    </option>
+                    </Input>
+                  </InputGroup>
+                </FormGroup> 
+
+                <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Contry" type="select">
+                    <option value=''>
+                       Choose sub couns....
+                    </option>
+                    <option value='libya'>
+                       i dont know 1
+                    </option>
+                    <option value='kanda'>
+                    i dont know 2
+                    </option>
+                    </Input>
+                  </InputGroup>
+                </FormGroup> 
+                
+                <div className="text-center">
+                  <Button className="mt-4" color="primary" type="button" onClick={e=>console.log('tasdasd')}>
+                    Submit
                   </Button>
                 </div>
               </Form>

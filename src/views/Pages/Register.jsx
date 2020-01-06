@@ -66,8 +66,8 @@ class Register extends React.Component {
       <Col lg="5" md="7">
       <div style={{marginBottom:'5%'}}>
           <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-4">
+            <CardHeader className="bg-transparent pb-3">
+              <div className=" text-center ">
               <h3>Account information</h3>
               </div>
             </CardHeader>
@@ -141,13 +141,11 @@ class Register extends React.Component {
             </CardBody>
           </Card>
           </div>
-          
         </Col>
-
         <Col lg="6" md="8">
           <Card className="bg-secondary shadow border-0">
-            <CardHeader className="bg-transparent pb-5">
-              <div className="text-muted text-center mt-2 mb-4">
+            <CardHeader className="bg-transparent pb-3">
+              <div className="text-center">
               <h3>Personal information</h3>
               </div>
             </CardHeader>
@@ -161,6 +159,28 @@ class Register extends React.Component {
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="NID" type="text" />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative mb-3">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-hat-3" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Conform NID" type="text"
+                    
+                     />
+                  </InputGroup>
+                </FormGroup>
+                <FormGroup>
+                  <InputGroup className="input-group-alternative mb-3">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-hat-3" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="Conform Regestration number" type="text" />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
@@ -182,7 +202,7 @@ class Register extends React.Component {
                     </InputGroupAddon>
                     <Input placeholder="Contry" type="select">
                     <option value=''>
-                       Choose
+                       Choose Contry
                     </option>
                     <option value='libya'>
                        libya
@@ -194,13 +214,23 @@ class Register extends React.Component {
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
-                  <InputGroup className="input-group-alternative mb-3">
+                  <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
-                        <i className="ni ni-hat-3" />
+                        <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="City" type="text" />
+                    <Input placeholder="Contry" type="select">
+                    <option value=''>
+                       Choose City
+                    </option>
+                    <option value='libya'>
+                      bangazi
+                    </option>
+                    <option value='kanda'>
+                      Tripoly
+                    </option>
+                    </Input>
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
