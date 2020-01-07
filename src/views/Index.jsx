@@ -46,38 +46,38 @@ import {
 } from "reactstrap";
 
 // core components
-import {
-  chartOptions,
-  parseOptions,
-  // chartExample1,
-  // chartExample2
-} from "variables/charts.jsx";
 
 import Header from "components/Headers/Header.jsx";
 
 class Index extends React.Component {
   state = {
-    activeNav: 1,
-    chartExample1Data: "data1"
+    Contry:'',
+    City:'',
+    Center:"",
+    rigen:'',
+    couns:'',
   };
-  toggleNavs = (e, index) => {
-    e.preventDefault();
-    this.setState({
-      activeNav: index,
-      chartExample1Data:
-        this.state.chartExample1Data === "data1" ? "data2" : "data1"
-    });
-    let wow = () => {
-      console.log(this.state);
-    };
-    wow.bind(this);
-    setTimeout(() => wow(), 1000);
-    // this.chartReference.update();
-  };
-  componentWillMount() {
-    if (window.Chart) {
-      parseOptions(Chart, chartOptions());
+
+  InputChangeHandler(event,value){
+    this.setState({[event]:value});
+  }
+
+  ReginCenter(){
+    const Contry =this.state.Contry;
+    const City =this.state.City;
+    const Center=this.state.Center;
+    if(Contry===''||City===''||Center===''){
+      return;
     }
+  }
+  ReginCenter2(){
+    const rigen =this.state.rigen;
+    const couns =this.state.couns;
+    if(couns===''||rigen===''){
+      return;
+    }
+  }
+  componentWillMount() {
   }
   render() {
     return (
@@ -104,7 +104,9 @@ class Index extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Contry" type="select">
+                    <Input placeholder="Contry" type="select"
+                    onChange={(e)=>this.InputChangeHandler('Country',e.target.value)}
+                    >
                     <option value=''>
                        Choose Cuntry
                     </option>
@@ -124,7 +126,9 @@ class Index extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Contry" type="select">
+                    <Input placeholder="Contry" type="select"
+                    onChange={(e)=>this.InputChangeHandler('City',e.target.value)}
+                    >
                     <option value=''>
                        Choose city
                     </option>
@@ -144,7 +148,9 @@ class Index extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Contry" type="select">
+                    <Input placeholder="Contry" type="select"
+                     onChange={(e)=>this.InputChangeHandler('Center',e.target.value)}
+                    >
                     <option value=''>
                        Choose Center
                     </option>
@@ -158,7 +164,7 @@ class Index extends React.Component {
                   </InputGroup>
                 </FormGroup>   
                 <div className="text-center">
-                  <Button className="mt-4" color="primary" type="button" onClick={e=>console.log('tasdasd')}>
+                  <Button className="mt-4" color="primary" type="button" onClick={e=>this.ReginCenter()}>
                     Submit
                   </Button>
                 </div>             
@@ -185,7 +191,9 @@ class Index extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Contry" type="select">
+                    <Input placeholder="rigen" type="select"
+                     onChange={(e)=>this.InputChangeHandler('rigen',e.target.value)}
+                    >
                     <option value=''>
                        Choose rigen
                     </option>
@@ -206,7 +214,9 @@ class Index extends React.Component {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Contry" type="select">
+                    <Input placeholder="couns" type="select"
+                    onChange={(e)=>this.InputChangeHandler('couns',e.target.value)}
+                    >
                     <option value=''>
                        Choose sub couns....
                     </option>
@@ -219,9 +229,8 @@ class Index extends React.Component {
                     </Input>
                   </InputGroup>
                 </FormGroup> 
-                
                 <div className="text-center">
-                  <Button className="mt-4" color="primary" type="button" onClick={e=>console.log('tasdasd')}>
+                  <Button className="mt-4" color="primary" type="button" onClick={e=>this.ReginCenter2()}>
                     Submit
                   </Button>
                 </div>

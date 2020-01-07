@@ -62,7 +62,18 @@ class Index extends React.Component {
     CoCollor:'primary',
     CS:0,
     alert: null,
-    show: false
+    show: false,
+    Email:'',
+    ConfirmEmail:"",
+    NewEmail:"",
+    OldPassword:"",
+    NewPassword:"",
+    OldNumber:"",
+    NewNumber:'',
+    ConfirmNumber:'',
+    ConfirmPassword:"",
+    flage1:0,
+    flage2:0,
   };
   hideAlert() {
     this.setState({
@@ -86,6 +97,10 @@ class Index extends React.Component {
     });
   }
 
+  InputHandler(event,value){
+    this.setState({[event]:value});
+  }
+
   RenderAI(){
     this.setState({AICollor:'info',PCCollor:'primary',CoCollor:'primary',CS:1});
 
@@ -103,26 +118,31 @@ class Index extends React.Component {
     //set flage number 
     return;
   }
-  toggleNavs = (e, index) => {
-    e.preventDefault();
-    this.setState({
-      activeNav: index,
-      chartExample1Data:
-        this.state.chartExample1Data === "data1" ? "data2" : "data1"
-    });
-    let wow = () => {
-      console.log(this.state);
-    };
-    wow.bind(this);
-    setTimeout(() => wow(), 1000);
-    // this.chartReference.update();
-  };
-  componentWillMount() {
-    if (window.Chart) {
-      parseOptions(Chart, chartOptions());
+  
+  Email(){
+    if (this.state.Email===''||this.state.NewEmail===''||this.state.ConfirmEmail==='') {
+      this.setState({flage1:0})
+      return;
     }
+    this.setState({flage1:1})
   }
-
+  Password(){
+    if (this.state.NewPassword===''||this.state.ConfirmPassword===''||this.state.OldPassword==='') {
+      this.setState({flage2:0})
+      return;
+    }
+    this.setState({flage2:1})
+  }
+  Num(){
+    console.log(this.state.flage);
+    if (this.state.NewNumber===''||this.state.OldNumber===''||this.state.ConfirmNumber==='') {
+      return
+    }
+    if (this.state.flage1===1&&this.state.flage2===1) {
+      this.inputAlert();
+    }
+  
+  }
 Content(){
     if(this.state.CS===1){
       return(
@@ -141,7 +161,8 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="Old Email" type="email" 
-                    // onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
+                    value={this.state.Email}
+                    onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -153,7 +174,8 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="Confirm Email" type="email"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                      value={this.state.ConfirmEmail}
+                    onChange={(e)=>{this.InputHandler("ConfirmEmail",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -169,13 +191,14 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="new Email" type="email" 
-                    // onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
+                   value={this.state.NewEmail}
+                    onChange={(e)=>{this.InputHandler("NewEmail",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>      
                 <Button className="" color='primary' type="button"
-                        // onClick={(e)=>this.inputAlert()}
+                        onClick={(e)=>this.Email()}
                         >
                            Submit
                         </Button>
@@ -199,7 +222,8 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="Old Password" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                   value={this.state.OldPassword}
+                    onChange={(e)=>{this.InputHandler("OldPassword",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -211,7 +235,8 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="New Password" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                   value={this.state.NewPassword}
+                    onChange={(e)=>{this.InputHandler("NewPassword",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -227,13 +252,14 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="Confirm Password" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                   value={this.state.ConfirmPassword}
+                    onChange={(e)=>{this.InputHandler("ConfirmPassword",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
                 <Button className="" color='primary' type="button"
-                        // onClick={(e)=>this.inputAlert()}
+                        onClick={(e)=>this.Password()}
                         >
                            Submit
                         </Button>
@@ -257,8 +283,9 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Old Number" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    <Input placeholder="Old Number" type="number"
+                   value={this.state.OldNumber}
+                    onChange={(e)=>{this.InputHandler("OldNumber",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -269,8 +296,9 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="New Number" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    <Input placeholder="New Number" type="number"
+                   value={this.state.NewNumber}
+                    onChange={(e)=>{this.InputHandler("NewNumber",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -285,14 +313,15 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Confirm Number" type="password"
-                    // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    <Input placeholder="Confirm Number" type="number"
+                    value={this.state.ConfirmNumber}
+                    onChange={(e)=>{this.InputHandler("ConfirmNumber",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
                 <Button color='primary' type="button"
-                        onClick={(e)=>this.inputAlert()}>
+                        onClick={(e)=>this.Num()}>
                            Submit
                         </Button>
                 </FormGroup>
@@ -310,11 +339,6 @@ Content(){
  </Form>
     );
   }
-
-
-
-
-
   render() {
     return (
 <>

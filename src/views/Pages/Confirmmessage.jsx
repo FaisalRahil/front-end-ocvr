@@ -52,7 +52,7 @@ onclick(){
     this.setState({Errors:"Please Fill the Feilds"});
     return;
   }
-this.setState({isLodding:true});
+// this.setState({isLodding:true});
 // const formdata = {
 //   Email:this.state.Email,
 //   Password:this.state.Password
@@ -76,7 +76,7 @@ this.setState({isLodding:true});
     window.location.pathname ='/admin/index';
   // })
   // .catch(error=>{
-    this.setState({isLodding:false});
+    // this.setState({isLodding:false});
     // this.setState({Errors:error.message});
     // console.log(error);
     
