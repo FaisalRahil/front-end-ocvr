@@ -31,7 +31,6 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
-  Row,
   Col
 } from "reactstrap";
 
@@ -112,7 +111,7 @@ Conntent(){
             <CardBody className="px-lg-5 py-lg-2">
               <div className="text-center text-muted mb-4">
                 <h3>
-                    Confirm your Registration number xx-xxxxx <a href=""> not my number</a>
+                  Confirm your Registration number xx-xxxxx <a href="https://hnec.ly/">not my number</a>
                 </h3>
               </div>
               <Form role="form">
@@ -127,7 +126,7 @@ Conntent(){
                   </InputGroup>
                 </FormGroup>
                 <div className="text-center">
-                <a href=""> resend code</a>
+                <a href="https://hnec.ly/"> resend code</a>
                 </div>
                 <div className="text-center">
                   <Button className="my-4" color="primary" type="button" onClick={event=>{this.onclick()}}>

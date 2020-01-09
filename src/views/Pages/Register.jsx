@@ -44,7 +44,6 @@ class Register extends React.Component {
     ConfirmNID:"",
     ConfirmRegstrationNumber:"",
     MotherName:"",
-    ConfirmNID:"",
     Country:'',
     City:"",
     Phone:""
