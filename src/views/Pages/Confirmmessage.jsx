@@ -43,14 +43,15 @@ class Login extends React.Component {
     Password:'',
     Email:'',
     isLodding:false,
-    Errors:''
+    Errors:null
   }
 onclick(){
     // this.state.Password===''|| this.state.Password.length<6||
   if(this.state.Email===''){
-    this.setState({Errors:"Please Fill the Feilds"});
+    this.setState({Errors:(<span className="text-danger">Please enter the code that we send you</span>)});
     return;
   }
+  this.setState({Errors:null});
 // this.setState({isLodding:true});
 // const formdata = {
 //   Email:this.state.Email,
@@ -128,12 +129,15 @@ Conntent(){
                 <div className="text-center">
                 <a href="https://hnec.ly/"> resend code</a>
                 </div>
+                <div className="text-center pt-3">
+                {this.state.Errors}
+                </div>
                 <div className="text-center">
                   <Button className="my-4" color="primary" type="button" onClick={event=>{this.onclick()}}>
                   {this.Conntent()}
                   </Button>             
                 </div>
-                {this.state.Errors}
+                
               </Form>
             </CardBody>
           </Card>

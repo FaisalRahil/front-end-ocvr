@@ -31,6 +31,7 @@ import {
   InputGroupAddon,
   InputGroupText,
   InputGroup,
+  // Row,
   Col
 } from "reactstrap";
 
@@ -43,11 +44,46 @@ class Login extends React.Component {
     Password:'',
     Email:'',
     isLodding:false,
-    Errors:''
+    Errors:'',
+    emailError:null,
+    passwordErrorLogin:null
   }
 onclick(){
-  if(this.state.Password===''|| this.state.Password.length<6||this.state.Email===''){
-    this.setState({Errors:"Please Fill the Feilds"});
+  if (this.state.Email===''&&this.state.Password==='') {
+    this.setState({
+      emailError: (
+        <small className="text-danger">
+          Email is required and format should be <i>john@doe.com</i>.
+        </small>
+      ),Email:''
+    });
+    this.setState({
+      passwordErrorLogin: (
+        <small className="text-danger">
+          You must enter a password of at least 6 characters.
+        </small>
+      ),Password:''
+    })
+    return;
+  }
+  if(this.state.Email===''){
+    this.setState({
+      emailError: (
+        <small className="text-danger">
+          Email is required and format should be <i>john@doe.com</i>.
+        </small>
+      ),Email:''
+    })
+    return;
+  }
+  if(this.state.Password===''){
+    this.setState({
+      passwordErrorLogin: (
+        <small className="text-danger">
+          You must enter a password of at least 6 characters.
+        </small>
+      ),Password:''
+    })
     return;
   }
 this.setState({isLodding:true});
@@ -85,6 +121,29 @@ this.setState({isLodding:true});
   }
 
 
+  handleEmailChange(event) {
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    re.test(event.target.value) === false
+      ? this.setState({
+          emailError: (
+            <small className="text-danger">
+              Email is required and format should be <i>john@doe.com</i>.
+            </small>
+          ),Email:''
+        })
+      : this.setState({ emailError: null,Email:event.target.value});
+  }
+  handleLoginPassword(event) {
+    event.target.value.length < 6
+      ? this.setState({
+          passwordErrorLogin: (
+            <small className="text-danger">
+              You must enter a password of at least 6 characters.
+            </small>
+          ),Password:''
+        })
+      : this.setState({ passwordErrorLogin: null,Password: event.target.value });
+  }
 
 Conntent(){
 
@@ -112,14 +171,15 @@ Conntent(){
             <CardBody className="px-lg-5 py-lg-3">
               <Form role="form">
                 <FormGroup className="mb-3">
-                  <InputGroup className="input-group-alternative">
+                  <InputGroup className="input-group-alternative ">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                    <Input  placeholder="Email" type="email" onChange={(e)=>{this.handleEmailChange(e)}}/>
                   </InputGroup>
+                  {this.state.emailError}
                 </FormGroup>
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
@@ -129,9 +189,10 @@ Conntent(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="Password" type="password"
-                    onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
+                    onChange={(e)=>{this.handleLoginPassword(e)}}
                     />
                   </InputGroup>
+                  {this.state.passwordErrorLogin}
                 </FormGroup>
                 <div className="text-center">
                   <Button className="my-4" color="primary" type="button" onClick={event=>{this.onclick()}}>
