@@ -51,11 +51,13 @@ import Header from "components/Headers/Header.jsx";
 
 class Index extends React.Component {
   state = {
-    Contry:'',
+    Country:'',
     City:'',
     Center:"",
     rigen:'',
     couns:'',
+    Error:null,
+    Error2:null,
   };
 
   InputChangeHandler(event,value){
@@ -63,19 +65,24 @@ class Index extends React.Component {
   }
 
   ReginCenter(){
-    const Contry =this.state.Contry;
+    const Contry =this.state.Country;
     const City =this.state.City;
     const Center=this.state.Center;
     if(Contry===''||City===''||Center===''){
+      this.setState({Error:(<span className="text-danger">All fields requierd</span>)})
       return;
     }
+    this.setState({Error:null});
+
   }
   ReginCenter2(){
     const rigen =this.state.rigen;
     const couns =this.state.couns;
     if(couns===''||rigen===''){
+      this.setState({Error2:(<span className="text-danger">All fields requierd</span>)})
       return;
     }
+    this.setState({Error2:null});
   }
   componentWillMount() {
   }
@@ -167,7 +174,10 @@ class Index extends React.Component {
                   <Button className="mt-4" color="primary" type="button" onClick={e=>this.ReginCenter()}>
                     Submit
                   </Button>
-                </div>             
+                </div>   
+                <div className="text-center pt-3">
+                  {this.state.Error}
+                </div>          
               </Form>
             </CardBody>
           </Card>
@@ -235,6 +245,9 @@ class Index extends React.Component {
                   </Button>
                 </div>
               </Form>
+              <div className="text-center  pt-3">
+              {this.state.Error2}
+              </div>
             </CardBody>
           </Card>
         </Col>

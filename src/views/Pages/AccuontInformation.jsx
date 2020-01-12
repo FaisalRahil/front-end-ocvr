@@ -62,6 +62,7 @@ class Index extends React.Component {
     CoCollor:'primary',
     CS:0,
     alert: null,
+    alert2: null,
     show: false,
     Email:'',
     ConfirmEmail:"",
@@ -74,10 +75,11 @@ class Index extends React.Component {
     ConfirmPassword:"",
     flage1:0,
     flage2:0,
+    emailError:null,
   };
-  hideAlert() {
+  hideAlert(event) {
     this.setState({
-      alert: null
+      [event]: null
     });
   }
   inputAlert() {
@@ -86,24 +88,33 @@ class Index extends React.Component {
         <SweetAlert
           input
           showCancel
-          style={{ display: "block", marginTop: "150px" }}
+          style={{ display: "block" }}
           title="Confirm your account"
           onConfirm={e => alert('your input is '+e)}
-          onCancel={() => this.hideAlert()}
+          onCancel={() => this.hideAlert('alert')}
           confirmBtnBsStyle="info"
           cancelBtnBsStyle="danger"
         />
       )
     });
   }
-
+  inputAlertFields() {
+    this.setState({
+      alert2: (
+        <SweetAlert
+          style={{ display: "block" }}
+          title="Please fill all the feild !!"
+          onConfirm={(e) => this.hideAlert('alert2')}
+        />
+      )
+    });
+  }
   InputHandler(event,value){
     this.setState({[event]:value});
   }
 
   RenderAI(){
     this.setState({AICollor:'info',PCCollor:'primary',CoCollor:'primary',CS:1});
-
     return;
   }
 
@@ -134,14 +145,25 @@ class Index extends React.Component {
     this.setState({flage2:1})
   }
   Num(){
-    console.log(this.state.flage);
     if (this.state.NewNumber===''||this.state.OldNumber===''||this.state.ConfirmNumber==='') {
-      return
+      return this.inputAlertFields();
     }
     if (this.state.flage1===1&&this.state.flage2===1) {
-      this.inputAlert();
+     return this.inputAlert();
     }
-  
+    return this.inputAlertFields();
+  }
+  handleEmailChange(target,event) {
+    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    re.test(event.target.value) === false
+      ? this.setState({
+          emailError: (
+            <small className="text-danger">
+              Email is required and format should be <i>john@doe.com</i>.
+            </small>
+          ),[target]:''
+        })
+      : this.setState({ emailError:null,[target]:event.target.value});
   }
 Content(){
     if(this.state.CS===1){
@@ -161,8 +183,8 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="Old Email" type="email" 
-                    value={this.state.Email}
-                    onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
+                    // value={this.state.Email}
+                    onChange={(e)=>{this.handleEmailChange("Email",e)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -174,8 +196,8 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="Confirm Email" type="email"
-                      value={this.state.ConfirmEmail}
-                    onChange={(e)=>{this.InputHandler("ConfirmEmail",e.target.value)}}
+                      // value={this.state.ConfirmEmail}
+                    onChange={(e)=>{this.handleEmailChange("ConfirmEmail",e)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -191,8 +213,8 @@ Content(){
                       </InputGroupText>
                     </InputGroupAddon>
                     <Input placeholder="new Email" type="email" 
-                   value={this.state.NewEmail}
-                    onChange={(e)=>{this.InputHandler("NewEmail",e.target.value)}}
+                    // value={this.state.NewEmail}
+                    onChange={(e)=>{this.handleEmailChange("NewEmail",e)}}
                     />
                   </InputGroup>
                 </FormGroup>
@@ -206,6 +228,9 @@ Content(){
             </Form>
             </Col>
           </Row>
+          <div className="text-center">
+            {this.state.emailError}
+          </div>
           </div>
       );
     }
@@ -273,6 +298,7 @@ Content(){
       return(
         <div>
         {this.state.alert}
+        {this.state.alert2}
       <Row>
         <Col>
         <Form role="form">
