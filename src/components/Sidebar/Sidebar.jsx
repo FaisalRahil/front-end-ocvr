@@ -82,17 +82,27 @@ class Sidebar extends React.Component {
   createLinks = routes => {
     return routes.map((prop, key) => {
       return (
+        
         <NavItem key={key}>
-          <NavLink
+         <NavLink
             to={prop.layout + prop.path}
             tag={NavLinkRRD}
             onClick={this.closeCollapse}
             activeClassName="active"
           >
-            <i className={prop.icon} />
-            {prop.name}
-          </NavLink>
+          
+        {/* <Row> */}
+          {/* <Col className="pl-8"> */}
+          {prop.name}
+          {/* </Col> */}
+          {/* <Col className=""> */}
+          <i className={prop.icon}/>
+          {/* </Col> */}
+        {/* </Row> */}
+        
+        </NavLink>
         </NavItem>
+        
       );
     });
   };
@@ -112,7 +122,7 @@ class Sidebar extends React.Component {
     }
     return (
       <Navbar
-        className="navbar-vertical fixed-left navbar-light bg-white"
+        className="navbar-vertical fixed-right navbar-light bg-white"
         expand="md"
         id="sidenav-main"
       >
@@ -167,18 +177,19 @@ class Sidebar extends React.Component {
               </Row>
             </div>
             {/* Navigation */}
-            <Nav navbar>{this.createLinks(routes)}</Nav>
+            
+            <Nav navbar className="text-right">{this.createLinks(routes)}</Nav>
             {/* Divider */}
             <hr className="my-3" />
             {/* Heading */}
-            <h6 className="navbar-heading text-muted">Documentation</h6>
+            <h6 className="navbar-heading text-muted"></h6>
             {/* Navigation */}
             <Nav className="mb-md-3" navbar>
               <NavItem>
                 <NavLink 
                   onClick={()=>{localStorage.clear();window.location.pathname='/auth/login'}}>
                   <i className="ni ni-spaceship" />
-                  Logout
+                  تسجيل خروج
                 </NavLink>
               </NavItem>
               <NavItem>
@@ -186,7 +197,7 @@ class Sidebar extends React.Component {
                 href="https://hnec.ly/"
                 >
                   <i className="ni ni-palette" />
-                  HNEC Web site
+               الموقع الرسمي للمفوظية
                 </NavLink>
               </NavItem>
             </Nav>

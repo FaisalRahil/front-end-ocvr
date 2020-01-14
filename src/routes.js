@@ -26,14 +26,14 @@ import AI from "views/Pages/AccuontInformation.jsx";
 var routes = [
   {
     path: "/index",
-    name: "Dashboard",
+    name: "الرئيسية",
     icon: "ni ni-tv-2 text-primary",
     component: Index,
     layout: "/admin"
   },
   {
     path: "/AccountInformation",
-    name: "Account",
+    name: "الحساب شخصي",
     icon: "ni ni-planet text-blue",
     component: AI,
     layout: "/admin"
