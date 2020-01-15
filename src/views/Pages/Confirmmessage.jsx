@@ -48,7 +48,7 @@ class Login extends React.Component {
 onclick(){
     // this.state.Password===''|| this.state.Password.length<6||
   if(this.state.Email===''){
-    this.setState({Errors:(<span className="text-danger">Please enter the code that we send you</span>)});
+    this.setState({Errors:(<span className="text-danger">الرجاء ادخال الرمز الذي تم ارساله </span>)});
     return;
   }
   this.setState({Errors:null});
@@ -96,7 +96,7 @@ Conntent(){
       />
     );
   }else{
-    return("Login");
+    return("تأكيد");
   }
 }
   render() {
@@ -106,16 +106,16 @@ Conntent(){
         <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-3">
             <div className="text-center">
-            <h1 className="text-black">OCVR Confirm </h1>
+            <h1 className="text-black">تأكيد على البيانات</h1>
             </div>
             </CardHeader>
             <CardBody className="px-lg-5 py-lg-2">
               <div className="text-center text-muted mb-4">
                 <h3>
-                  Confirm your Registration number xx-xxxxx <a href="https://hnec.ly/">not my number</a>
+                <a href="https://hnec.ly/">ليست بياناتي </a>  xx-xxxxx التأكيد على البيانات من خلال رقم 
                 </h3>
               </div>
-              <Form role="form">
+              <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup >
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -123,11 +123,11 @@ Conntent(){
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
+                    <Input placeholder="البريد الالكتروني" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
                   </InputGroup>
                 </FormGroup>
                 <div className="text-center">
-                <a href="https://hnec.ly/"> resend code</a>
+                <a href="https://hnec.ly/"> ارسال من جيديد</a>
                 </div>
                 <div className="text-center pt-3">
                 {this.state.Errors}

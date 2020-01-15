@@ -53,14 +53,14 @@ onclick(){
     this.setState({
       emailError: (
         <small className="text-danger">
-          Email is required and format should be <i>john@doe.com</i>.
+          الابريد الالكتروني يجب ان يكون  <i>john@doe.com</i>.
         </small>
       ),Email:''
     });
     this.setState({
       passwordErrorLogin: (
         <small className="text-danger">
-          You must enter a password of at least 6 characters.
+          الرمز السري لا يقل على ستة حروف
         </small>
       ),Password:''
     })
@@ -70,7 +70,7 @@ onclick(){
     this.setState({
       emailError: (
         <small className="text-danger">
-          Email is required and format should be <i>john@doe.com</i>.
+          الابريد الالكتروني يجب ان يكون  <i>john@doe.com</i>.
         </small>
       ),Email:''
     })
@@ -80,7 +80,7 @@ onclick(){
     this.setState({
       passwordErrorLogin: (
         <small className="text-danger">
-          You must enter a password of at least 6 characters.
+          لرمز السري لا يقل على ستة حروف
         </small>
       ),Password:''
     })
@@ -127,7 +127,7 @@ this.setState({isLodding:true});
       ? this.setState({
           emailError: (
             <small className="text-danger">
-              Email is required and format should be <i>john@doe.com</i>.
+            الابريد الالكتروني يجب ان يكون  <i>john@doe.com</i>.
             </small>
           ),Email:''
         })
@@ -138,7 +138,7 @@ this.setState({isLodding:true});
       ? this.setState({
           passwordErrorLogin: (
             <small className="text-danger">
-              You must enter a password of at least 6 characters.
+             الرمز السري لا يقل هلى سته حروف
             </small>
           ),Password:''
         })
@@ -157,7 +157,7 @@ Conntent(){
       />
     );
   }else{
-    return("Login");
+    return('تسجيل دخول');
   }
 }
   render() {
@@ -166,10 +166,10 @@ Conntent(){
         <Col lg="5" md="7">
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-3">
-                    <h1 className="text-black text-center">OCVR Login </h1>
+                    <h1 className="text-black text-center">تسجيل دخول </h1>
             </CardHeader>
             <CardBody className="px-lg-5 py-lg-3">
-              <Form role="form">
+              <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup className="mb-3">
                   <InputGroup className="input-group-alternative ">
                     <InputGroupAddon addonType="prepend">
@@ -177,7 +177,7 @@ Conntent(){
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input  placeholder="Email" type="email" onChange={(e)=>{this.handleEmailChange(e)}}/>
+                    <Input  placeholder="البريد الالكتروني" type="email" onChange={(e)=>{this.handleEmailChange(e)}}/>
                   </InputGroup>
                   {this.state.emailError}
                 </FormGroup>
@@ -188,7 +188,7 @@ Conntent(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Password" type="password"
+                    <Input placeholder="كلمة المرور" type="password"
                     onChange={(e)=>{this.handleLoginPassword(e)}}
                     />
                   </InputGroup>

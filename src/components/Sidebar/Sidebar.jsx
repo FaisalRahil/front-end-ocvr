@@ -40,6 +40,7 @@ import {
   // InputGroupText,
   // InputGroup,
   // Media,
+ 
   NavbarBrand,
   Navbar,
   NavItem,
@@ -84,23 +85,22 @@ class Sidebar extends React.Component {
       return (
         
         <NavItem key={key}>
+        
          <NavLink
             to={prop.layout + prop.path}
             tag={NavLinkRRD}
             onClick={this.closeCollapse}
             activeClassName="active"
+            style={{float:'right'}}
           >
-          
-        {/* <Row> */}
-          {/* <Col className="pl-8"> */}
+    <div style={{paddingLeft:80}}>
           {prop.name}
-          {/* </Col> */}
-          {/* <Col className=""> */}
+          </div>
           <i className={prop.icon}/>
-          {/* </Col> */}
-        {/* </Row> */}
+        
         
         </NavLink>
+        
         </NavItem>
         
       );
@@ -184,22 +184,34 @@ class Sidebar extends React.Component {
             {/* Heading */}
             <h6 className="navbar-heading text-muted"></h6>
             {/* Navigation */}
-            <Nav className="mb-md-3" navbar>
+            <Nav className="mb-md-3" navbar
+           
+            >
+
               <NavItem>
+                      
                 <NavLink 
+                 style={{float:'right'}}
                   onClick={()=>{localStorage.clear();window.location.pathname='/auth/login'}}>
-                  <i className="ni ni-spaceship" />
                   تسجيل خروج
+                  <i className="ni ni-spaceship" 
+                     style={{marginLeft:10}}
+                  />
                 </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink 
+                 style={{float:'right'}}
                 href="https://hnec.ly/"
                 >
-                  <i className="ni ni-palette" />
                الموقع الرسمي للمفوظية
+               <i className="ni ni-palette"
+                style={{marginLeft:10}}
+                />
                 </NavLink>
+               
               </NavItem>
+             
             </Nav>
           </Collapse>
         </Container>
@@ -230,3 +242,12 @@ Sidebar.propTypes = {
 };
 
 export default Sidebar;
+
+ // display: "inline-flex",
+  //   fontSize: "12px",
+  //   lineHeight: "22px",
+  //   "& svg": {
+  //     top: "4px",
+  //     width: "16px",
+  //     height: "16px",
+  //     position: "relative",

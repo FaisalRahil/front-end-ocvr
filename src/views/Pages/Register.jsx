@@ -76,7 +76,7 @@ class Register extends React.Component {
       this.setState({
         Allfields: (
           <h4 className="text-danger">
-             All field requierd
+             الرجاء تعبأت كافة الحقول
           </h4>
         )
       })
@@ -87,15 +87,15 @@ class Register extends React.Component {
        if (NID===ConfirmNID) {
         this.setState({passwordError:null,emailError:null,Allfields:null});
         confirmAlert({
-          title: 'Confirm to submit',
-          message: 'Name of person from CRA',
+          title: 'تأكيد على البيانات',
+          message: 'الاسم المذكور اعلاه',
           buttons: [
             {
-              label: 'Yes',
+              label: 'نعم',
               onClick: () => this.redirect(true)
             },
             {
-              label: 'No',
+              label: 'لا',
               onClick: () => console.log('no')
               
             }
@@ -105,8 +105,8 @@ class Register extends React.Component {
        }
        this.setState({
         Allfields : (
-          <h4 className="text-danger">
-          NID not match
+          <h4 className="text-danger" style={{float:'right',paddingBottom:12}}>
+          الرقم الوطني لايتوافق 
           </h4>
         )
       })
@@ -114,8 +114,8 @@ class Register extends React.Component {
      } 
      this.setState({
       emailError: (
-        <h2 className="text-danger">
-        Email not match
+        <h2 className="text-danger" style={{float:'right',paddingBottom:12}}>
+       البريد لالكتروني غير مطابق
         </h2>
       )
     })
@@ -123,8 +123,8 @@ class Register extends React.Component {
     }
     this.setState({
       passwordError: (
-        <small className="text-danger">
-          Passwords not match
+        <small className="text-danger" style={{float:'right',paddingBottom:12}}>
+         كلمة المرور غير مطابقة
         </small>
       )
     })
@@ -136,8 +136,8 @@ handlePasswordChange(traget,event) {
   event.target.value.length < 6
     ? this.setState({
         passwordError: (
-          <small className="text-danger">
-            You must enter a password of at least 6 characters.
+          <small className="text-danger" style={{float:'right',paddingBottom:12}}>
+     الرمز السري يجب ان يكون اكثر من سته احرف
           </small>
         ),[traget]:''
       })
@@ -148,8 +148,8 @@ handleEmailChange(target,event) {
   re.test(event.target.value) === false
     ? this.setState({
         emailError: (
-          <small className="text-danger">
-            Email is required and format should be <i>john@doe.com</i>.
+          <small className="text-danger" style={{float:'right',paddingBottom:12}}>
+           البريد الالكتروني يجب ان يكون مثل 
           </small>
         ),[target]:''
       })
@@ -164,11 +164,11 @@ handleEmailChange(target,event) {
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-3">
               <div className=" text-center ">
-              <h3>Account information</h3>
+              <h3>بيانات الشخصية </h3>
               </div>
             </CardHeader>
             <CardBody className="px-lg-5 py-lg-5">
-              <Form role="form">
+              <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup className="mb-3">
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -176,7 +176,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Email" type="email" 
+                    <Input placeholder="البريد الالكترةني " type="email" 
                     onChange={(e)=>{this.handleEmailChange('Email',e)}}
                     />
                   </InputGroup>
@@ -188,7 +188,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Confirm Email" type="email" 
+                    <Input placeholder=" تأكيد البريد الالكتروني " type="email" 
                     onChange={(e)=>{this.handleEmailChange('ConfirmEmail',e)}}
                     />
                   </InputGroup>
@@ -201,7 +201,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Password" type="password"
+                    <Input placeholder="الرمز السري " type="password"
                     onChange={(e)=>{this.handlePasswordChange("Password",e)}}
                     />
                   </InputGroup>
@@ -213,7 +213,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Confirm Password" type="password"
+                    <Input placeholder="تأكيد الرمز" type="password"
                     onChange={(e)=>{this.handlePasswordChange("ConfirmPassword",e)}}
                     />
                   </InputGroup>
@@ -228,11 +228,11 @@ handleEmailChange(target,event) {
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-3">
               <div className="text-center">
-              <h3>Personal information</h3>
+              <h3>البيانات الشخصية</h3>
               </div>
             </CardHeader>
             <CardBody className="px-lg-5 py-lg-5">
-              <Form role="form">
+              <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup>
                   <InputGroup className="input-group-alternative mb-3">
                     <InputGroupAddon addonType="prepend">
@@ -240,7 +240,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-hat-3" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="NID" type="text"
+                    <Input placeholder="الرقم الوطني " type="text"
                     onChange={(e)=>{this.InputChangeHandler("NID",e.target.value)}}
                      />
                   </InputGroup>
@@ -252,7 +252,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-hat-3" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Conform NID" type="text"
+                    <Input placeholder="التأكيد على الرقم الوطني" type="text"
                       onChange={(e)=>{this.InputChangeHandler("ConfirmNID",e.target.value)}}
                      />
                   </InputGroup>
@@ -264,7 +264,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-hat-3" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Conform Regestration number" type="text" 
+                    <Input placeholder="تأكيد رمز التسجيل" type="text" 
                         onChange={(e)=>{this.InputChangeHandler("ConfirmRegstrationNumber",e.target.value)}}
                     />
                   </InputGroup>
@@ -276,7 +276,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Mother Name" type="email" 
+                    <Input placeholder="اسم الام" type="email" 
                     onChange={(e)=>{this.InputChangeHandler("MotherName",e.target.value)}}
                     />
                   </InputGroup>
@@ -288,15 +288,15 @@ handleEmailChange(target,event) {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Contry" type="select" onChange={(e)=>{this.InputChangeHandler("Country",e.target.value)}}>
+                    <Input placeholder="البلد" type="select" onChange={(e)=>{this.InputChangeHandler("Country",e.target.value)}}>
                     <option value=''>
-                       Choose Contry
+                       اختيار البلد
                     </option>
                     <option value='libya'>
-                       libya
+                       ليبيا
                     </option>
                     <option value='kanda'>
-                    kanda
+                    تونس
                     </option>
                     </Input>
                   </InputGroup>
@@ -308,17 +308,17 @@ handleEmailChange(target,event) {
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="City" type="select"
+                    <Input placeholder="مدينة " type="select"
                       onChange={(e)=>{this.InputChangeHandler("City",e.target.value)}}
                     >
                     <option value=''>
-                       Choose City
+                       اختر المدينة 
                     </option>
                     <option value='libya'>
-                      bangazi
+                      بنغازي
                     </option>
                     <option value='kanda'>
-                      Tripoly
+                      طرابلس
                     </option>
                     </Input>
                   </InputGroup>
@@ -330,7 +330,7 @@ handleEmailChange(target,event) {
                         <i className="ni ni-hat-3" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Phone" type="number" 
+                    <Input placeholder="رقم الهاتف" type="number" 
                     onChange={(e)=>{this.InputChangeHandler("Phone",e.target.value)}}
                     />
                   </InputGroup>
@@ -340,7 +340,7 @@ handleEmailChange(target,event) {
                 </div>
                 <div className="text-center">
                   <Button className="mt-4" color="primary" type="button" onClick={e=>this.create()}>
-                    Create account
+                    تكوين حساب
                   </Button>
                 </div>
               </Form>

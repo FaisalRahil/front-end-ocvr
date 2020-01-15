@@ -28,11 +28,6 @@ import {
   Card,
   CardHeader,
   CardBody,
-  // NavItem,
-  // NavLink,
-  // Nav,
-  // Progress,
-  // Table,
   Container,
   Row,
   Col,
@@ -69,7 +64,7 @@ class Index extends React.Component {
     const City =this.state.City;
     const Center=this.state.Center;
     if(Contry===''||City===''||Center===''){
-      this.setState({Error:(<span className="text-danger">All fields requierd</span>)})
+      this.setState({Error:(<span className="text-danger">ارجاء تعبئة كافة الحقول</span>)})
       return;
     }
     this.setState({Error:null});
@@ -79,7 +74,7 @@ class Index extends React.Component {
     const rigen =this.state.rigen;
     const couns =this.state.couns;
     if(couns===''||rigen===''){
-      this.setState({Error2:(<span className="text-danger">All fields requierd</span>)})
+      this.setState({Error2:(<span className="text-danger">ارجاء تعبئة كافة الحقول</span>)})
       return;
     }
     this.setState({Error2:null});
@@ -98,12 +93,11 @@ class Index extends React.Component {
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-2">
               <div className="text-center mt-2 mb-4">
-              <h3>Choose your regin center</h3>
+              <h3>اختر الـــمنطقة</h3>
               </div>
             </CardHeader>
             <CardBody className="px-lg-5 py-lg-3">
-              <Form role="form">
-
+              <Form role="form" style={{ direction:'rtl'}}>
               <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -115,13 +109,13 @@ class Index extends React.Component {
                     onChange={(e)=>this.InputChangeHandler('Country',e.target.value)}
                     >
                     <option value=''>
-                       Choose Cuntry
+                       اختر بلد
                     </option>
                     <option value='libya'>
-                       libya
+                       ليبيا
                     </option>
                     <option value='kanda'>
-                    kanda
+                    كندا
                     </option>
                     </Input>
                   </InputGroup>
@@ -137,13 +131,13 @@ class Index extends React.Component {
                     onChange={(e)=>this.InputChangeHandler('City',e.target.value)}
                     >
                     <option value=''>
-                       Choose city
+                      اختر مدينة
                     </option>
                     <option value='libya'>
-                       bngaze
+                       بنغازي
                     </option>
                     <option value='kanda'>
-                    sbha
+                    طرابلس
                     </option>
                     </Input>
                   </InputGroup>
@@ -159,20 +153,20 @@ class Index extends React.Component {
                      onChange={(e)=>this.InputChangeHandler('Center',e.target.value)}
                     >
                     <option value=''>
-                       Choose Center
+                       اختر مركز اقتراع
                     </option>
                     <option value='libya'>
-                       i dont know 1
+                      مركز الهضبة 
                     </option>
                     <option value='kanda'>
-                    i dont know 2
+                   مركز ابوسليم
                     </option>
                     </Input>
                   </InputGroup>
                 </FormGroup>   
                 <div className="text-center">
                   <Button className="mt-4" color="primary" type="button" onClick={e=>this.ReginCenter()}>
-                    Submit
+                    حــفـــظ
                   </Button>
                 </div>   
                 <div className="text-center pt-3">
@@ -188,11 +182,11 @@ class Index extends React.Component {
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-2">
               <div className="text-muted text-center mt-2 mb-4">
-              <h3>Choose your regin center</h3>
+              <h3>اختار منطقة الاقتراع</h3>
               </div>
             </CardHeader>
             <CardBody className="px-lg-5 py-lg-5">
-              <Form role="form">
+              <Form role="form" style={{ direction:'rtl'}}>
 
               <FormGroup>
                   <InputGroup className="input-group-alternative">
@@ -205,13 +199,13 @@ class Index extends React.Component {
                      onChange={(e)=>this.InputChangeHandler('rigen',e.target.value)}
                     >
                     <option value=''>
-                       Choose rigen
+                       اختر منطقة
                     </option>
                     <option value='libya'>
-                       i dont know 1
+                     ليبيا
                     </option>
                     <option value='kanda'>
-                    i dont know 2
+                    تشاد
                     </option>
                     </Input>
                   </InputGroup>
@@ -228,20 +222,26 @@ class Index extends React.Component {
                     onChange={(e)=>this.InputChangeHandler('couns',e.target.value)}
                     >
                     <option value=''>
-                       Choose sub couns....
+                       اختر فرع
                     </option>
                     <option value='libya'>
-                       i dont know 1
+                       طائر النورس حلق 
                     </option>
                     <option value='kanda'>
-                    i dont know 2
+                    حلق حلق 
+                    </option>
+                    <option value='kanda'>
+                    بجنحيه وصفق
+                    </option>
+                    <option value='kanda'>
+                   صفق صفق
                     </option>
                     </Input>
                   </InputGroup>
                 </FormGroup> 
                 <div className="text-center">
                   <Button className="mt-4" color="primary" type="button" onClick={e=>this.ReginCenter2()}>
-                    Submit
+                    حــفــظ
                   </Button>
                 </div>
               </Form>

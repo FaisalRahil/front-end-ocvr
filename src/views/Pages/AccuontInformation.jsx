@@ -89,7 +89,7 @@ class Index extends React.Component {
           input
           showCancel
           style={{ display: "block" }}
-          title="Confirm your account"
+          title="تأكيد على البيانات"
           onConfirm={e => alert('your input is '+e)}
           onCancel={() => this.hideAlert('alert')}
           confirmBtnBsStyle="info"
@@ -103,7 +103,7 @@ class Index extends React.Component {
       alert2: (
         <SweetAlert
           style={{ display: "block" }}
-          title="Please fill all the feild !!"
+          title="الرجاء تعبأت كافة الحقول "
           onConfirm={(e) => this.hideAlert('alert2')}
         />
       )
@@ -159,7 +159,7 @@ class Index extends React.Component {
       ? this.setState({
           emailError: (
             <small className="text-danger">
-              Email is required and format should be <i>john@doe.com</i>.
+              الابريد الالكتروني يجب ان يكون  <i>john@doe.com</i>.
             </small>
           ),[target]:''
         })
@@ -168,9 +168,9 @@ class Index extends React.Component {
 Content(){
     if(this.state.CS===1){
       return(
-        <div>
-        <h4>
-        Your old Email is: XXXX@XXX.XXX
+        <div style={{direction:'rtl'}}>
+        <h4 style={{textAlign:'right'}}>
+          البريد الالكتروني السابق
         </h4>
         <Row>
         <Col>
@@ -182,7 +182,7 @@ Content(){
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Old Email" type="email" 
+                    <Input placeholder="البريد الالكترني السابق" type="email" 
                     // value={this.state.Email}
                     onChange={(e)=>{this.handleEmailChange("Email",e)}}
                     />
@@ -195,7 +195,7 @@ Content(){
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Confirm Email" type="email"
+                    <Input placeholder="التأكد على البريد الالكتروني " type="email"
                       // value={this.state.ConfirmEmail}
                     onChange={(e)=>{this.handleEmailChange("ConfirmEmail",e)}}
                     />
@@ -212,17 +212,17 @@ Content(){
                         <i className="ni ni-email-83" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="new Email" type="email" 
+              <Input placeholder="البريد الالكتروني الجديد" type="email" 
                     // value={this.state.NewEmail}
                     onChange={(e)=>{this.handleEmailChange("NewEmail",e)}}
                     />
                   </InputGroup>
                 </FormGroup>
-                <FormGroup>      
+                <FormGroup style={{float:'right'}}>      
                 <Button className="" color='primary' type="button"
                         onClick={(e)=>this.Email()}
                         >
-                           Submit
+                           حــفــظ
                         </Button>
                 </FormGroup>
             </Form>
@@ -238,7 +238,7 @@ Content(){
       return(
         <Row>
         <Col>
-        <Form role="form">
+        <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -246,29 +246,24 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Old Password" type="password"
+                    <Input placeholder="كلمة المرور السابقة " type="password"
                    value={this.state.OldPassword}
                     onChange={(e)=>{this.InputHandler("OldPassword",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="New Password" type="password"
-                   value={this.state.NewPassword}
-                    onChange={(e)=>{this.InputHandler("NewPassword",e.target.value)}}
-                    />
-                  </InputGroup>
+                
+                <FormGroup style={{float:'right'}}>
+                <Button className="" color='primary' type="button"
+                        onClick={(e)=>this.Password()}
+                        >
+                          حــفــظ
+                        </Button>
                 </FormGroup>
             </Form>
             </Col>
       <Col>
-        <Form role="form">
+        <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -276,18 +271,24 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Confirm Password" type="password"
+            <Input placeholder="تأكد على كلمة  المرور " type="password"
                    value={this.state.ConfirmPassword}
                     onChange={(e)=>{this.InputHandler("ConfirmPassword",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
-                <Button className="" color='primary' type="button"
-                        onClick={(e)=>this.Password()}
-                        >
-                           Submit
-                        </Button>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="كلمة المرور الجديدة" type="password"
+                   value={this.state.NewPassword}
+                    onChange={(e)=>{this.InputHandler("NewPassword",e.target.value)}}
+                    />
+                  </InputGroup>
                 </FormGroup>
             </Form>
           </Col>
@@ -301,7 +302,7 @@ Content(){
         {this.state.alert2}
       <Row>
         <Col>
-        <Form role="form">
+        <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -309,29 +310,23 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Old Number" type="number"
+                    <Input placeholder="رقم الهاتف الفعلي " type="number"
                    value={this.state.OldNumber}
                     onChange={(e)=>{this.InputHandler("OldNumber",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="New Number" type="number"
-                   value={this.state.NewNumber}
-                    onChange={(e)=>{this.InputHandler("NewNumber",e.target.value)}}
-                    />
-                  </InputGroup>
+                
+                <FormGroup style={{float:'right'}}>
+                <Button color='primary' type="button"
+                        onClick={(e)=>this.Num()}>
+                           حــفــظ
+                        </Button>
                 </FormGroup>
             </Form>
             </Col>
             <Col>
-           <Form role="form">
+           <Form role="form" style={{direction:'rtl'}}>
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -339,17 +334,24 @@ Content(){
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="Confirm Number" type="number"
+                    <Input placeholder="تأكيد رقم الهاتف" type="number"
                     value={this.state.ConfirmNumber}
                     onChange={(e)=>{this.InputHandler("ConfirmNumber",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
                 <FormGroup>
-                <Button color='primary' type="button"
-                        onClick={(e)=>this.Num()}>
-                           Submit
-                        </Button>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="رقم الهاتف الجديد" type="number"
+                   value={this.state.NewNumber}
+                    onChange={(e)=>{this.InputHandler("NewNumber",e.target.value)}}
+                    />
+                  </InputGroup>
                 </FormGroup>
             </Form>
           </Col>
@@ -360,7 +362,7 @@ Content(){
     return(
  <Form role="form">
     <div style={{textAlign:"center",margin:'10%'}}>
-   Hi this is for changing your account Information
+  البيانات الشخصية
     </div>
  </Form>
     );
@@ -379,14 +381,14 @@ Content(){
             <div className=" col">
               <Card className=" shadow">
                 <CardHeader className=" bg-transparent">
-                <div style={{textAlign:"center"}}>
+                <div style={{textAlign:"center" ,direction:'rtl'}}>
                     {/* <Row> */}
                         {/* <Col> */}
                         {/* <div style={{textAlign:'center'}}> */}
                         <Button className="my-4" color={this.state.AICollor} type="button"
                         onClick={(e)=>this.RenderAI()}
                         >
-                           Account information
+                           بيانات البريد الالكتروني
                         </Button>
                         {/* </div> */}
                         {/* </Col> */}
@@ -395,7 +397,7 @@ Content(){
                         <Button className="my-4" color={this.state.PCCollor} type="button"
                          onClick={(e)=>this.RenderPC()}
                         >
-                            Password Conformation
+                            كلمـــة المـــرور
                         </Button>
                         {/* </div> */}
                         {/* </Col> */}
@@ -404,7 +406,7 @@ Content(){
                         <Button className="my-4" color={this.state.CoCollor} type="button"
                          onClick={(e)=>this.RenderCo()}
                         >
-                          Confirmation
+                          رقم الهـــاتف
                         </Button>
                         {/* </div> */}
                         {/* </Col> */}
@@ -424,167 +426,3 @@ Content(){
   }
 }
 export default Index;
-
-
-
-// <Container className="mt--7" fluid>
-//       <Row>
-//       <Col lg="6" md="8">
-//       <div style={{marginBottom:'5%'}}>
-//           <Card className="bg-secondary shadow border-0">
-//             <CardHeader className="bg-transparent pb-5">
-//               <div className="text-muted text-center mt-2 mb-4">
-//               <h3>Choose your regin center</h3>
-//               </div>
-//             </CardHeader>
-//             <CardBody className="px-lg-5 py-lg-5">
-//               <Form role="form">
-//                 <FormGroup className="mb-3">
-//                   <InputGroup className="input-group-alternative">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-email-83" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="Email" type="email" 
-//                     // onChange={(e)=>{this.InputHandler("Email",e.target.value)}}
-//                     />
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <FormGroup className="mb-3">
-//                   <InputGroup className="input-group-alternative">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-email-83" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="Confirm Email" type="email" onChange={(e)=>{this.InputHandler("Email",e.target.value)}}/>
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <FormGroup>
-//                   <InputGroup className="input-group-alternative">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-lock-circle-open" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="Password" type="password"
-//                     // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
-//                     />
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <FormGroup>
-//                   <InputGroup className="input-group-alternative">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-lock-circle-open" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="Confirm Password" type="password"
-//                     // onChange={(e)=>{this.InputHandler("Password",e.target.value)}}
-//                     />
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <div className="custom-control custom-control-alternative custom-checkbox">
-//                   <input
-//                     className="custom-control-input"
-//                     id=" customCheckLogin"
-//                     type="checkbox"
-//                   />
-//                   {/* <label
-//                     className="custom-control-label"
-//                     htmlFor=" customCheckLogin"
-//                   >
-//                     <span className="text-muted">Remember me</span>
-//                   </label> */}
-//                 </div>
-//                 <div className="text-center">
-//                {/* bouttone  */}
-//                 </div>
-             
-//               </Form>
-//             </CardBody>
-//           </Card>
-//           </div>
-//         </Col>
-// {/* 
-//         <Col lg="6" md="8">
-//           <Card className="bg-secondary shadow border-0">
-//             <CardHeader className="bg-transparent pb-5">
-//               <div className="text-muted text-center mt-2 mb-4">
-//               <h3>Choose your regin center</h3>
-//               </div>
-//             </CardHeader>
-//             <CardBody className="px-lg-5 py-lg-5">
-//               <Form role="form">
-//                 <FormGroup>
-//                   <InputGroup className="input-group-alternative mb-3">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-hat-3" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="NID" type="text" />
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <FormGroup>
-//                   <InputGroup className="input-group-alternative mb-3">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-email-83" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="Mother Name" type="email" />
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <FormGroup>
-//                   <InputGroup className="input-group-alternative">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-lock-circle-open" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="Contry" type="select">
-//                     <option value=''>
-//                        Choose
-//                     </option>
-//                     <option value='libya'>
-//                        libya
-//                     </option>
-//                     <option value='kanda'>
-//                     kanda
-//                     </option>
-//                     </Input>
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <FormGroup>
-//                   <InputGroup className="input-group-alternative mb-3">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-hat-3" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="City" type="text" />
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <FormGroup>
-//                   <InputGroup className="input-group-alternative mb-3">
-//                     <InputGroupAddon addonType="prepend">
-//                       <InputGroupText>
-//                         <i className="ni ni-hat-3" />
-//                       </InputGroupText>
-//                     </InputGroupAddon>
-//                     <Input placeholder="Phone" type="text" />
-//                   </InputGroup>
-//                 </FormGroup>
-//                 <div className="text-center">
-//                   <Button className="mt-4" color="primary" type="button" onClick={e=>console.log('tasdasd')}>
-//                     Create account
-//                   </Button>
-//                 </div>
-//               </Form>
-//             </CardBody>
-//           </Card>
-//         </Col> */}
-//       </Row>
-//  </Container> 
