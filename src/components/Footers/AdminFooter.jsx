@@ -35,7 +35,7 @@ class Footer extends React.Component {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                HNEC
+                المفوظية
               </a>
             </div>
           </Col>
@@ -48,7 +48,7 @@ class Footer extends React.Component {
                   // rel="noopener noreferrer"
                   // target="_blank"
                 >
-                  HNEC
+                  المفوظية
                 </NavLink>
               </NavItem>
 
@@ -58,29 +58,9 @@ class Footer extends React.Component {
                   // rel="noopener noreferrer"
                   // target="_blank"
                 >
-                  About Us
+                  عن المفوظية
                 </NavLink>
               </NavItem>
-
-              {/* <NavItem>
-                <NavLink
-                  href="http://blog.creative-tim.com?ref=adr-admin-footer"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  Blog
-                </NavLink>
-              </NavItem> */}
-
-              {/* <NavItem>
-                <NavLink
-                  href="https://github.com/creativetimofficial/argon-dashboard/blob/master/LICENSE.md?ref=adr-admin-footer"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  MIT License
-                </NavLink>
-              </NavItem> */}
             </Nav>
           </Col>
         </Row>

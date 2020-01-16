@@ -177,7 +177,6 @@ class Index extends React.Component {
           </Card>
           </div>
         </Col>
-
         <Col lg="6" md="8">
           <Card className="bg-secondary shadow border-0">
             <CardHeader className="bg-transparent pb-2">
@@ -210,7 +209,6 @@ class Index extends React.Component {
                     </Input>
                   </InputGroup>
                 </FormGroup> 
-
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">

@@ -29,7 +29,7 @@ class Header extends React.Component {
             <div className="header-body">
               {/* Card stats */}
               <div style={{textAlign:"center",color:'white'}} className="pt-2">
-                This is for HNEC Description     
+              وصف المفوظية 
               </div>
             </div>
           </Container>

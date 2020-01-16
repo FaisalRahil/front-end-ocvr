@@ -97,10 +97,7 @@ class Sidebar extends React.Component {
           {prop.name}
           </div>
           <i className={prop.icon}/>
-        
-        
         </NavLink>
-        
         </NavItem>
         
       );

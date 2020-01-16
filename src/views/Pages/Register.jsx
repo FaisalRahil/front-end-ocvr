@@ -351,5 +351,4 @@ handleEmailChange(target,event) {
     );
   }
 }
-
 export default Register;

@@ -61,8 +61,8 @@ class Auth extends React.Component {
               <div className="header-body text-center mb-5">
                 <Row className="justify-content-center">
                   <Col lg="5" md="6">
-                    <h1 className="text-white">Welcome to OCVR system </h1>
-                    <h1 className="text-white"> Out of Country Voters Regstrations </h1>
+                    <h1 className="text-white">اهلا بك في المفوظية</h1>
+                    <h1 className="text-white"> اي نص  </h1>
                   </Col>
                 </Row>
               </div>

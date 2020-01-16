@@ -36,7 +36,7 @@ class Login extends React.Component {
                     // href="https://www.creative-tim.com?ref=adr-auth-footer"
                     // target="_blank"
                   >
-                    HNEC
+                    مفوظية
                   </a>
                 </div>
               </Col>
@@ -47,7 +47,7 @@ class Login extends React.Component {
                       // href="https://www.creative-tim.com?ref=adr-auth-footer"
                       // target="_blank"
                     >
-                      HNEC
+                     مفوظية
                     </NavLink>
                   </NavItem>
                   <NavItem>
@@ -55,7 +55,7 @@ class Login extends React.Component {
                       // href="https://www.creative-tim.com/presentation?ref=adr-auth-footer"
                       // target="_blank"
                     >
-                      About Us
+                    عن المفوظية
                     </NavLink>
                   </NavItem>
                   {/* <NavItem>

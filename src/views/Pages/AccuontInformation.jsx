@@ -219,11 +219,9 @@ Content(){
                   </InputGroup>
                 </FormGroup>
                 <FormGroup style={{float:'right'}}>      
-                <Button className="" color='primary' type="button"
-                        onClick={(e)=>this.Email()}
-                        >
+                <Button className="" color='primary' type="button" onClick={(e)=>this.Email()}>
                            حــفــظ
-                        </Button>
+                </Button>
                 </FormGroup>
             </Form>
             </Col>
