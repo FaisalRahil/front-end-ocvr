@@ -76,6 +76,8 @@ class Index extends React.Component {
     flage1:0,
     flage2:0,
     emailError:null,
+    PasswordMessage:null,
+    NumberMessage:null
   };
   hideAlert(event) {
     this.setState({
@@ -103,7 +105,7 @@ class Index extends React.Component {
       alert2: (
         <SweetAlert
           style={{ display: "block" }}
-          title="Please fill all the feild !!"
+          title="Please Mak sure you provid All the fiealds !!"
           onConfirm={(e) => this.hideAlert('alert2')}
         />
       )
@@ -132,23 +134,45 @@ class Index extends React.Component {
   
   Email(){
     if (this.state.Email===''||this.state.NewEmail===''||this.state.ConfirmEmail==='') {
-      this.setState({flage1:0})
+      this.setState({flage1:0,emailError:(<h4 className="text-danger">All feilds requierd</h4>)});
       return;
     }
-    this.setState({flage1:1})
+    if (this.state.Email===this.state.NewEmail) {
+     return this.setState({flage1:0,emailError:( <h4 className="text-danger">The new Email is the same old Email!</h4>)});
+    }
+    if (this.state.ConfirmEmail!==this.state.NewEmail) {
+      return this.setState({flage1:0,emailError:(<h4 className="text-danger">Email Not Match !!</h4>)});
+    }
+
+    this.setState({flage1:1,emailError:(<h4 className="text-green">Very good</h4>)})
   }
+
   Password(){
     if (this.state.NewPassword===''||this.state.ConfirmPassword===''||this.state.OldPassword==='') {
-      this.setState({flage2:0})
+      this.setState({flage2:0,PasswordMessage:(<h4 className="text-danger">All fields requierd</h4>)});
       return;
     }
-    this.setState({flage2:1})
+    if (this.state.NewPassword===this.state.OldPassword) {
+      return  this.setState({flage2:0,PasswordMessage:(<h4 className="text-danger">The new Password is the same as Old Password</h4>)});
+    }
+    if (this.state.NewPassword!==this.state.ConfirmPassword){
+    return  this.setState({flage2:0,PasswordMessage:(<h4 className="text-danger">Password not match</h4>)});
+    }
+    this.setState({flage2:1,PasswordMessage:(<h4 className="text-green">Very good</h4>)})
   }
   Num(){
     if (this.state.NewNumber===''||this.state.OldNumber===''||this.state.ConfirmNumber==='') {
-      return this.inputAlertFields();
+      this.setState({NumberMessage:(<h4 className="text-danger">All Fieald Requierd</h4>)})
+      return;
+    }
+    if (this.state.NewNumber===this.state.OldNumber) {
+      return  this.setState({NumberMessage:(<h4 className="text-danger">The Old number match the new number</h4>)})
+    }
+    if (this.state.NewNumber!==this.state.ConfirmNumber) {
+      return  this.setState({NumberMessage:(<h4 className="text-danger">Number is not match</h4>)})
     }
     if (this.state.flage1===1&&this.state.flage2===1) {
+    this.setState({NumberMessage:(<h4 className="text-green">All good</h4>)})
      return this.inputAlert();
     }
     return this.inputAlertFields();
@@ -236,6 +260,7 @@ Content(){
     }
     if(this.state.CS===2){
       return(
+        <div>
         <Row>
         <Col>
         <Form role="form">
@@ -292,6 +317,10 @@ Content(){
             </Form>
           </Col>
           </Row>
+          <div className="text-center">
+            {this.state.PasswordMessage}
+          </div>
+          </div>
       );
     }
     if(this.state.CS===3){
@@ -354,6 +383,9 @@ Content(){
             </Form>
           </Col>
           </Row>
+          <div className="text-center">
+            {this.state.NumberMessage}
+          </div>
         </div>
       );
     }
