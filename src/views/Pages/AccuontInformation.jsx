@@ -76,6 +76,8 @@ class Index extends React.Component {
     flage1:0,
     flage2:0,
     emailError:null,
+    NumberMessage:null,
+    PasswordMessage:null
   };
   hideAlert(event) {
     this.setState({
@@ -103,7 +105,7 @@ class Index extends React.Component {
       alert2: (
         <SweetAlert
           style={{ display: "block" }}
-          title="الرجاء تعبأت كافة الحقول "
+          title=" الرجاء تعبأت كافة الحقول "
           onConfirm={(e) => this.hideAlert('alert2')}
         />
       )
@@ -132,23 +134,46 @@ class Index extends React.Component {
   
   Email(){
     if (this.state.Email===''||this.state.NewEmail===''||this.state.ConfirmEmail==='') {
-      this.setState({flage1:0})
+      this.setState({flage1:0,emailError:(<h4 className="text-danger">جميع الحقول مطلوبة</h4>)});
       return;
     }
-    this.setState({flage1:1})
+    if (this.state.Email===this.state.NewEmail) {
+     return this.setState({flage1:0,emailError:( <h4 className="text-danger">لايوجد اي تغير في البريد الالكترني</h4>)});
+    }
+    if (this.state.ConfirmEmail!==this.state.NewEmail) {
+      return this.setState({flage1:0,emailError:(<h4 className="text-danger">البريد الالكتروني لا يتوافق</h4>)});
+    }
+    this.setState({flage1:1,emailError:(<h4 className="text-green">جميع الحقول صحيحة</h4>)})
   }
   Password(){
+    this.setState({PasswordMessage:null});
     if (this.state.NewPassword===''||this.state.ConfirmPassword===''||this.state.OldPassword==='') {
-      this.setState({flage2:0})
+      this.setState({flage2:0,PasswordMessage:(<h4 className="text-danger">جميع الحقول مطلوبة</h4>)});
       return;
     }
-    this.setState({flage2:1})
+    if (this.state.NewPassword===this.state.OldPassword) {
+      return  this.setState({flage2:0,PasswordMessage:(<h4 className="text-danger">لايوجد اي تغير في ارمز السري</h4>)});
+    }
+    if (this.state.NewPassword!==this.state.ConfirmPassword){
+    return  this.setState({flage2:0,PasswordMessage:(<h4 className="text-danger">لا يوجد توافق بين رموز</h4>)});
+    }
+    this.setState({flage2:1,PasswordMessage:(<h4 className="text-green">حميع الحقول صحيحة</h4>)})
   }
+
   Num(){
     if (this.state.NewNumber===''||this.state.OldNumber===''||this.state.ConfirmNumber==='') {
-      return this.inputAlertFields();
+      this.setState({NumberMessage:(<h4 className="text-danger">جميع الحقول مطلوبة</h4>)})
+      return;
     }
+    if (this.state.NewNumber===this.state.OldNumber) {
+      return  this.setState({NumberMessage:(<h4 className="text-danger">لايوجد تغير في ارقم الهاتف</h4>)})
+    }
+    if (this.state.NewNumber!==this.state.ConfirmNumber) {
+      return  this.setState({NumberMessage:(<h4 className="text-danger">لايوجد توافق بين الرقام الهاتف</h4>)})
+    }
+    this.setState({NumberMessage:(<h4 className="text-green">حميع الحقول صحيحة</h4>)})
     if (this.state.flage1===1&&this.state.flage2===1) {
+    this.setState({NumberMessage:(<h4 className="text-green">حميع الحقول صحيحة</h4>)})
      return this.inputAlert();
     }
     return this.inputAlertFields();
@@ -234,22 +259,24 @@ Content(){
     }
     if(this.state.CS===2){
       return(
+        <div>
         <Row>
         <Col>
         <Form role="form" style={{direction:'rtl'}}>
-                <FormGroup>
+        <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
                         <i className="ni ni-lock-circle-open" />
                       </InputGroupText>
                     </InputGroupAddon>
-                    <Input placeholder="كلمة المرور السابقة " type="password"
-                   value={this.state.OldPassword}
-                    onChange={(e)=>{this.InputHandler("OldPassword",e.target.value)}}
+                    <Input placeholder="كلمة المرور الجديدة" type="password"
+                   value={this.state.NewPassword}
+                    onChange={(e)=>{this.InputHandler("NewPassword",e.target.value)}}
                     />
                   </InputGroup>
                 </FormGroup>
+                
                 
                 <FormGroup style={{float:'right'}}>
                 <Button className="" color='primary' type="button"
@@ -262,6 +289,21 @@ Content(){
             </Col>
       <Col>
         <Form role="form" style={{direction:'rtl'}}>
+        <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="كلمة المرور السابقة " type="password"
+                   value={this.state.OldPassword}
+                    onChange={(e)=>{this.InputHandler("OldPassword",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+               
+
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -275,22 +317,13 @@ Content(){
                     />
                   </InputGroup>
                 </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="كلمة المرور الجديدة" type="password"
-                   value={this.state.NewPassword}
-                    onChange={(e)=>{this.InputHandler("NewPassword",e.target.value)}}
-                    />
-                  </InputGroup>
-                </FormGroup>
             </Form>
           </Col>
           </Row>
+          <div className="text-center">
+            {this.state.PasswordMessage}
+          </div>
+          </div>
       );
     }
     if(this.state.CS===3){
@@ -301,7 +334,32 @@ Content(){
       <Row>
         <Col>
         <Form role="form" style={{direction:'rtl'}}>
-                <FormGroup>
+        <FormGroup>
+                  <InputGroup className="input-group-alternative">
+                    <InputGroupAddon addonType="prepend">
+                      <InputGroupText>
+                        <i className="ni ni-lock-circle-open" />
+                      </InputGroupText>
+                    </InputGroupAddon>
+                    <Input placeholder="رقم الهاتف الجديد" type="number"
+                   value={this.state.NewNumber}
+                    onChange={(e)=>{this.InputHandler("NewNumber",e.target.value)}}
+                    />
+                  </InputGroup>
+                </FormGroup>
+        
+                
+                <FormGroup style={{float:'right'}}>
+                <Button color='primary' type="button"
+                        onClick={(e)=>this.Num()}>
+                           حــفــظ
+                        </Button>
+                </FormGroup>
+            </Form>
+            </Col>
+            <Col>
+           <Form role="form" style={{direction:'rtl'}}>
+           <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
                       <InputGroupText>
@@ -314,17 +372,7 @@ Content(){
                     />
                   </InputGroup>
                 </FormGroup>
-                
-                <FormGroup style={{float:'right'}}>
-                <Button color='primary' type="button"
-                        onClick={(e)=>this.Num()}>
-                           حــفــظ
-                        </Button>
-                </FormGroup>
-            </Form>
-            </Col>
-            <Col>
-           <Form role="form" style={{direction:'rtl'}}>
+              
                 <FormGroup>
                   <InputGroup className="input-group-alternative">
                     <InputGroupAddon addonType="prepend">
@@ -338,22 +386,12 @@ Content(){
                     />
                   </InputGroup>
                 </FormGroup>
-                <FormGroup>
-                  <InputGroup className="input-group-alternative">
-                    <InputGroupAddon addonType="prepend">
-                      <InputGroupText>
-                        <i className="ni ni-lock-circle-open" />
-                      </InputGroupText>
-                    </InputGroupAddon>
-                    <Input placeholder="رقم الهاتف الجديد" type="number"
-                   value={this.state.NewNumber}
-                    onChange={(e)=>{this.InputHandler("NewNumber",e.target.value)}}
-                    />
-                  </InputGroup>
-                </FormGroup>
             </Form>
           </Col>
           </Row>
+          <div className="text-center">
+            {this.state.NumberMessage}
+          </div>
         </div>
       );
     }
